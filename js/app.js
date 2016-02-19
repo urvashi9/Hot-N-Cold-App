@@ -1,4 +1,3 @@
-
 $(document).ready(function(){
 
 /*--- Display information modal box ---*/
@@ -14,9 +13,11 @@ $(document).ready(function(){
 
 var prevGuess=0;
 var numGuesses=0;
+var secretNumber=Math.floor((Math.random()*100)+1);
+console.log(secretNumber);
 
 function newGame(){
-	setNumber();
+	//setNumber();
 	prevGuess=0;
 	numGuesses=0;
 	$('#guessList').empty();
@@ -26,10 +27,6 @@ function newGame(){
 }
 
 newGame();
-
-function setNumber(){
-	var secretNumber=Math.floor((Math.random()*100)+1);
-}
 
 $('.new').click(function(){
 	newGame();
@@ -63,6 +60,7 @@ function submitGuess(){
 	$('#feedback').text(getGuessResult(guess));
 	prevGuess=guess;
 	$('#guessList').append('<li>' + guess + '</li>');
+	$('#userGuess').val('');
 }
 
 var difference;
